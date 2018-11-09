@@ -24,7 +24,7 @@ use_cuda = True
 path = os.getcwd()
 data = pd.read_csv(f'{path}/gcp_01.csv')
 data = data[["Category", "Sub Category", "Questions", "Answers"]].dropna()
-glove_path = '/home/glove.840B.300d.txt'
+glove_path = '/home/glove.840B.300d.txt' 
 ```
 
 
@@ -69,16 +69,23 @@ model.set_w2v_path(W2V_PATH)                                                    
 model.build_vocab_k_words(K=10000)                                                # Load Vocabulary from the Embeddings
 model.update_vocab(ques)
 embeddings = model.encode(ques_cleaned, bsize=64, tokenize=False, verbose=True)
-print('nb sentences encoded : {0}'.format(len(embeddings)))
+print('nb sentences encoded : {0}'.format(len(embeddings))) 
 ```
+-----
 
-    Vocab size : 10000
-    Found 185(/247) words with w2v vectors
-    New vocab size : 10188 (added 185 words)
-    Nb words kept : 2663/2852 (93.4%)
-    Speed : 3507.3 sentences/s (gpu mode, bsize=64)
-    nb sentences encoded : 288
-
+   Vocab size : 10000
+   
+   Found 185(/247) words with w2v vectors
+   
+   New vocab size : 10188 (added 185 words)
+   
+   Nb words kept : 2663/2852 (93.4%)
+   
+   Speed : 3507.3 sentences/s (gpu mode, bsize=64)
+   
+   nb sentences encoded : 288
+   
+-----
 
 
 ```python
@@ -112,13 +119,8 @@ def get_similar_questions(query_processed, num_results = 3, question_embeddings 
 get_similar_questions('what is an unexpected Adverse Drug Reaction')
 ```
 
-
-
-
-    (array([ 59,   0, 170]),
-     array([0.10569298, 0.1756931 , 0.35103738], dtype=float32))
-
-
+   (array([ 59,   0, 170]),
+    array([0.10569298, 0.1756931 , 0.35103738], dtype=float32))
 
 
 ```python
@@ -187,9 +189,13 @@ while True:
           break
     else: response(query, return_imp = True)
 ```
+---
 
-    BOT: Hi I am Clinical Bot, how can I help you?
-    
-    
-    bye
+BOT: Hi I am Clinical Bot, how can I help you.
+
+
+
+Bye!!!
+
+---
 
